@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holwch am Jac · Ask about Jac</title>
+<meta name="description" content="Gofynnwch gwestiynau am Jac a'i gais Prentis Gradd M-SParc. Ask questions about Jac's M-SParc Degree Apprentice application.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <span class="mark">J</span>
+  <div class="lang" role="group" aria-label="Iaith / Language">
+    <button type="button" data-lang="cy" lang="cy" aria-pressed="true">Cymraeg</button>
+    <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <p class="eyebrow" data-i18n="eyebrow"></p>
+    <h1 data-i18n="title"></h1>
+    <p class="lede" data-i18n="lede"></p>
+  </section>
+
+  <section class="chat" aria-live="polite">
+    <div id="log" class="log"></div>
+
+    <div id="suggestions" class="suggestions"></div>
+
+    <form id="form" class="composer">
+      <label for="q" class="sr" data-i18n="placeholder"></label>
+      <textarea id="q" rows="1" maxlength="600" required></textarea>
+      <button type="submit" id="send" data-i18n="send"></button>
+    </form>
+    <p class="note" data-i18n="note"></p>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer"></span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
