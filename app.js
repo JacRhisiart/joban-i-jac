@@ -1,6 +1,6 @@
 // ---- Settings -------------------------------------------------------------
 // After deploying the Cloudflare Worker, paste its URL here.
-const API_URL = "https://blue-wave-26c8.jacrhisiart1.workers.dev";
+const API_URL = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev";
 
 // ---- Text in both languages ----------------------------------------------
 const T = {
@@ -108,7 +108,11 @@ async function ask(text) {
       body: JSON.stringify({ messages: history.slice(-10), lang }),
     });
     const data = await res.json();
-    if (!res.ok || !data.reply) throw new Error(data.error || res.status);
+    if (!res.ok || !data.reply) {
+      if (data.status === "Worker is running")
+        throw new Error("The question reached the worker as a page visit, not a message. This usually means API_URL starts with http:// instead of https://, or has extra text after .workers.dev");
+      throw new Error((data.error || "No reply") + " (status " + res.status + "): " + JSON.stringify(data).slice(0, 300));
+    }
     pending.className = "msg bot";
     pending.textContent = data.reply;
     history.push({ role: "assistant", content: data.reply });
