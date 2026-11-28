@@ -7,7 +7,7 @@ const T = {
   cy: {
     eyebrow: "Cais Prentis Gradd · M-SParc 2027–2030",
     title: "Holwch unrhyw beth am Jac.",
-    lede: "Yn lle cais arferol, adeiladais i'r wefan hon. Gofynnwch gwestiwn am fy sgiliau, profiad neu pam fy mod i eisiau'r rôl — bydd y cynorthwyydd AI yn ateb yn seiliedig ar fy nghais.",
+    lede: "Yn lle cais arferol, adeiladais i'r wefan hon. Gofynnwch gwestiwn am fy sgiliau, profiad neu pam fy mod i eisiau'r rôl — bydd y cynorthwydd AI yn ateb yn seiliedig ar fy nghais.",
     placeholder: "Teipiwch eich cwestiwn…",
     send: "Gofyn",
     note: "Mae'r atebion yn cael eu creu gan AI o wybodaeth a ddarparwyd gan Jac. Am unrhyw beth pwysig, cysylltwch â Jac yn uniongyrchol.",
@@ -18,7 +18,7 @@ const T = {
       "Pam mae Jac eisiau'r brentisiaeth hon?",
       "Pa sgiliau digidol sydd gan Jac?",
       "Pam fyddai Jac yn addas fel Peiriannydd AI Preswyl?",
-      "Sut mae system fwcio Hwb Heli yn gweithio?",
+      "Sut mae system bwcio Hwb Heli yn gweithio?",
       "Beth yw profiad gwaith Jac?",
       "Sut gafodd y wefan hon ei hadeiladu?",
     ],
