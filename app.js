@@ -1,6 +1,6 @@
 // ---- Settings -------------------------------------------------------------
 // After deploying the Cloudflare Worker, paste its URL here.
-const API_URL = "https://blue-wave-26c8.jacrhisiart1.workers.dev/";
+const API_URL = "https://blue-wave-26c8.jacrhisiart1.workers.dev";
 
 // ---- Text in both languages ----------------------------------------------
 const T = {
