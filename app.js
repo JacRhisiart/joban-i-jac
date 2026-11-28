@@ -1,6 +1,6 @@
 // ---- Settings -------------------------------------------------------------
 // After deploying the Cloudflare Worker, paste its URL here.
-const API_URL = "https://blue-wave-26c8.jacrhisiart1.workers.dev/";
+const API_URL = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev";
 
 // ---- Text in both languages ----------------------------------------------
 const T = {
@@ -43,6 +43,16 @@ const T = {
     ],
   },
 };
+
+const DEBUG = new URLSearchParams(location.search).has("debug");
+function explain(e) {
+  const m = String(e && e.message || e);
+  if (location.protocol === "file:") return "The page was opened as a file. Open it from your GitHub Pages address instead.";
+  if (m === "Failed to fetch" || m.includes("NetworkError") || m.includes("Load failed"))
+    return "Could not reach the worker (" + API_URL + "). Check the URL in app.js is exactly your worker's address, starting https://, and that the worker is deployed.";
+  if (m.includes("Unexpected token") || m.includes("JSON")) return "The worker replied with something that isn't JSON. Is the full worker.js pasted in and deployed? " + m;
+  return m;
+}
 
 // ---- State ---------------------------------------------------------------
 let lang = "cy";
@@ -91,6 +101,7 @@ async function ask(text) {
   const pending = addMsg(T[lang].thinking, "bot thinking");
 
   try {
+    if (API_URL.includes("YOUR-WORKER")) throw new Error("API_URL in app.js is still the placeholder - paste your worker URL in.");
     const res = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -102,9 +113,11 @@ async function ask(text) {
     pending.textContent = data.reply;
     history.push({ role: "assistant", content: data.reply });
   } catch (e) {
-    console.error(e);
+    console.error("Chat error:", e.message || e);
     pending.className = "msg bot error";
     pending.textContent = T[lang].error;
+    // Add ?debug to the address to see the real reason on screen while setting up.
+    if (DEBUG) pending.textContent += "\n\n[debug] " + explain(e);
     history.pop(); // drop the unanswered question so the next try is clean
   } finally {
     send.disabled = false;
