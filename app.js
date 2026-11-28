@@ -10,7 +10,7 @@ const T = {
     lede: "Yn lle cais arferol, adeiladais i'r wefan hon. Gofynnwch gwestiwn am fy sgiliau, profiad neu pam fy mod i eisiau'r rôl — bydd y cynorthwydd AI yn ateb yn seiliedig ar fy nghais.",
     placeholder: "Teipiwch eich cwestiwn…",
     send: "Gofyn",
-    note: "Mae'r atebion yn cael eu creu gan AI o wybodaeth a ddarparwyd gan Jac. Am unrhyw beth pwysig, cysylltwch â Jac yn uniongyrchol.",
+    note: "Mae'r atebion yn cael eu creu gan AI o wybodaeth a ddarparwyd gan Jac. Am unrhyw beth pwysig, cysylltwch â Jac yn uniongyrchol. Esgusodwch gwallau iaith yr model DA!",
     footer: "Adeiladwyd gan Jac · Pwllheli, Gwynedd",
     thinking: "Yn meddwl…",
     error: "Mae'n ddrwg gen i, aeth rhywbeth o'i le. Rhowch gynnig arall arni mewn munud.",
